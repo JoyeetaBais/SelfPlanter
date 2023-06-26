@@ -1,6 +1,8 @@
 /*import fonts*/
 @import url("./fonts/Roboto/Roboto-Regular.ttf");
 @import url("./variables.css");
+/* document the code*/
+/* general */
 body {
   background-color: var(--title-color);
   font-family: var(--roboto);
@@ -11,120 +13,7 @@ body {
   margin: 20;
   padding: 20;
 }
-/* goals section */
-.centered-pair1 {
-  display: flex;
-  justify-content: center;
-}
 
-.goals{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.goals .text {
-  text-align: center;
-  margin-right: 20px;
-  margin-bottom: 30%;
-}
-
-.goals .image1 {
-  text-align: center;
-  margin-left: 20%;
-  padding: 10px;
-}
-
-.goals img {
-  max-width: 100%;
-  height: auto;
-}
-/* income section */
-.centered-pair2 {
-  display: flex;
-  justify-content: center;
-}
-
-.income {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.income .image2 {
-  text-align: center;
-  margin-right: 20px;
-  padding: 10px;
-  max-width: 60%;
-  
-}
-
-.income .text2{
-  text-align: center;
-  margin-left: 10%;
-}
-
-.income img {
-  max-width: 100%;
-  height: auto;
-}
-/* expense section */
-.centered-pair3 {
-  display: flex;
-  justify-content: center;
-}
-
-.expense{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.expense .text3 {
-  text-align: center;
-  margin-right: 20px;
-  margin-bottom: 30%;
-}
-
-.expense .image3 {
-  text-align: center;
-  margin-left: 20%;
-  padding: 10px;
-  max-width: 60%;
-}
-
-.expense img {
-  max-width: 100%;
-  height: auto;
-}
-/* savings section */
-.centered-pair4 {
-  display: flex;
-  justify-content: center;
-}
-
-.savings {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.savings .image4 {
-  text-align: center;
-  margin-right: 20px;
-  padding: 10px;
-  max-width: 60%;
-}
-
-.savings .text4{
-  text-align: center;
-  margin-left: 10%;
-}
-
-.savings img {
-  max-width: 100%;
-  height: auto;
-}
 .container {
   display: grid;
   grid-gap: 2px;
@@ -145,7 +34,7 @@ body {
   height: 100%;
   background-color: #37353592;
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
   float: center;
   display: grid;
@@ -155,7 +44,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .inner-rectangle11 {
   width: 100px;
@@ -222,6 +111,16 @@ body {
   
 }
 
+.inner-rectangle31 {
+  width: 100%;
+  height: 25%;
+  background-color: #7FBA00;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  float: left;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -229,19 +128,21 @@ table {
 }
 
 th, td {
-  
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #90ce0a;
 }
 
 th {
   background-color: #7FBA00;
+  border-radius: 5px;
+  text-align: center;
+  
 }
 
 button {
-  background-color: #007bff;
+  background-color: #90ce0a;
   color: #fff;
   border: none;
-  padding: 5px 10px;
+  box-shadow: #ccc;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -249,44 +150,31 @@ button {
 form {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 label {
   flex-basis: 100%;
-  
- 
 }
 
 input[type="date"], input[type="text"], input[type="number"] {
-  flex-basis: 100%;
-  border: 1px solid #ccc;
+  flex-basis: 80%;
+  border: 1px solid #7FBA00;
   border-radius: 5px;
 }
 
 button[type="submit"] {
-  background-color: #007bff;
+  background-color: #7FBA00;
   color: #fff;
   border: none;
-  padding: 5px 10px;
+  width: 100%;
+  height: 20%;
   border-radius: 5px;
   cursor: pointer;
 }
 
 /* rectangle 4 microsoft - design */
-.outer-rectangle4 {
-  width: 97%;
-  height: 78%;
-  background-color: #37353592;
-  border-radius: 10px;
-  padding: 10px;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 20px;
-  margin: 15px;
 
-}
 /*button 1 : balance */
 
 .btn1{
@@ -447,6 +335,16 @@ button[type="submit"] {
   margin: 15px;
 }
 
+.inner-rectangle51 {
+  width: 100%;
+  height: 70%;
+  background-color: #00A4EF;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  float: left;
+}
+
 
 .sidebar {
   width: 200px;
@@ -505,55 +403,223 @@ button[type="submit"] {
   margin-bottom: 10px;
 }
 
-
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.todo-item input[type="checkbox"] {
-  display: none;
-}
-
-.todo-item label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+.outer-rectangle4 {
+  width: 97%;
+  height: 78%;
+  background-color: #37353592;
+  border-radius: 10px;
+  padding: 10px;
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 15px;
+
 }
 
-.todo-item .checkmark {
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.card1 .flip-card-front {
+  background-color: #ff6600;
+}
+
+.card2 .flip-card-front {
+  background-color: #7FBA00;
+}
+
+.card3 .flip-card-front {
+  background-color: #00A4EF;
+}
+
+.card4 .flip-card-front {
+  background-color: #ffbb00;
+}
+.card1 .flip-card-back {
+  background-color: #ffffff;
+}
+
+.card2 .flip-card-back {
+  background-color: #ffffff;
+}
+
+.card3 .flip-card-back {
+  background-color: #ffffff;
+}
+
+.card4 .flip-card-back {
+  background-color: #ffffff;
+}
+.card1 .flip-card-front {
+  background-color: #ff6600;
+}
+
+.card2 .flip-card-front {
+  background-color: #7FBA00;
+}
+
+.card3 .flip-card-front {
+  background-color: #00A4EF;
+}
+
+.card4 .flip-card-front {
+  background-color: #ffbb00;
+}
+
+.flip-card-inner {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-.todo-item label:hover .checkmark {
-  background-color: #ccc;
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.todo-item input[type="checkbox"]:checked + label .checkmark:after {
-  content: "";
+.flip-card-front,
+.flip-card-back {
   position: absolute;
-  display: block;
-  left: 7px;
-  top: 3px;
-  width: 6px;
-  height: 12px;
-  border: solid #007bff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
 }
 
-.todo-item input[type="checkbox"]:checked + label .todo-text {
-  text-decoration: line-through;
-  color: #ccc;
+.flip-card-front {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-back {
+  background-color:rgb(247, 240, 240)0;
+  color: #000000;
+  transform: rotateY(180deg);
+  display: flex;
+  font-style: italic;
+  justify-content: center;
+  align-items: center;
+}
+
+/* goals section */
+.centered-pair1 {
+  display: flex;
+  justify-content: center;
+}
+
+.goals{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.goals .text {
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 30%;
+}
+
+.goals .image1 {
+  text-align: center;
+  margin-left: 20%;
+  padding: 10px;
+}
+
+.goals img {
+  max-width: 100%;
+  height: auto;
+}
+/* income section */
+.centered-pair2 {
+  display: flex;
+  justify-content: center;
+}
+
+.income {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.income .image2 {
+  text-align: center;
+  margin-right: 20px;
+  padding: 10px;
+  max-width: 60%;
+  
+}
+
+.income .text2{
+  text-align: center;
+  margin-left: 10%;
+}
+
+.income img {
+  max-width: 100%;
+  height: auto;
+}
+/* expense section */
+.centered-pair3 {
+  display: flex;
+  justify-content: center;
+}
+
+.expense{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.expense .text3 {
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 30%;
+}
+
+.expense .image3 {
+  text-align: center;
+  margin-left: 20%;
+  padding: 10px;
+  max-width: 60%;
+}
+
+.expense img {
+  max-width: 100%;
+  height: auto;
+}
+/* savings section */
+.centered-pair4 {
+  display: flex;
+  justify-content: center;
+}
+
+.savings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.savings .image4 {
+  text-align: center;
+  margin-right: 20px;
+  padding: 10px;
+  max-width: 60%;
+}
+
+.savings .text4{
+  text-align: center;
+  margin-left: 10%;
+}
+
+.savings img {
+  max-width: 100%;
+  height: auto;
 }

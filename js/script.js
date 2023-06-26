@@ -82,12 +82,34 @@ function scrollToExpense() {
   var charitySection = document.getElementById("total-expense");
   charitySection.scrollIntoView({ behavior: "smooth" });
 }
-function scrollToSavings() {
-  var charitySection = document.getElementById("total-savings");
+function scrollToGoals() {
+  var charitySection = document.getElementById("outer-rectangle5");
   charitySection.scrollIntoView({ behavior: "smooth" });
 }
 
 
+
+// Load weekly graph data and render by default
+var weeklyData = [
+  // Weekly graph data
+  {
+    type: "bar",
+    yValueFormatString: "#,##0.## $",
+    indexLabel: "{y}",
+    indexLabelPlacement: "inside",
+    indexLabelFontColor: "white",
+    dataPoints: [
+      { label: "M", y: 100},  
+      { label: "T", y: 150 },
+      { label: "W", y: 50 },
+      { label: "T", y: 110 },
+      { label: "F", y: 200 },
+      { label: "S", y: 120 },
+      { label: "S", y: 100 }
+    ]
+  }
+];
+renderGraph(weeklyData);
 
 // open weekly/monthly/yearly graph for week/month/year button respectively 
 function openGraph(interval) {
@@ -96,27 +118,6 @@ function openGraph(interval) {
 
   // Load and render graph data based on the selected interval
   if (interval === "weekly") {
-    // Load weekly graph data and render
-    var weeklyData = [
-      // Weekly graph data
-      {
-        type: "bar",
-        yValueFormatString: "#,##0.## $",
-        indexLabel: "{y}",
-        indexLabelPlacement: "inside",
-        indexLabelFontColor: "white",
-        dataPoints: [
-          { label: "M", y: 100},  
-          { label: "T", y: 150 },
-          { label: "W", y: 50 },
-          { label: "T", y: 110 },
-          { label: "F", y: 200 },
-          { label: "S", y: 120 },
-          { label: "S", y: 100 }
-        ]
-      }
-
-    ];
     renderGraph(weeklyData);
   } else if (interval === "monthly") {
     // Load monthly graph data and render
@@ -181,7 +182,7 @@ function renderGraph(data) {
     colorSet: "colorSet2",
     
     title: {
-      text: "Expenses"
+      text: "Expenses (Past Week)"
     },
     axisY: {
       title: "Amount in $"
@@ -194,37 +195,6 @@ function renderGraph(data) {
       ]
   });
   chart.render();
-}
-
-function createCalendar() {
-  const calendarContainer = document.getElementById('calendar');
-
-  // Get the current date
-  const currentDate = new Date();
-
-  // Get the year and month of the current date
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
-
-  // Get the number of days in the current month
-  const numDays = new Date(year, month + 1, 0).getDate();
-
-  // Get the day of the week the month starts on
-  const startDay = new Date(year, month, 1).getDay();
-
-  // Create a calendar grid with the dates
-  for (let i = 0; i < startDay; i++) {
-    const emptyDateElement = document.createElement('div');
-    emptyDateElement.classList.add('date', 'empty');
-    calendarContainer.appendChild(emptyDateElement);
-  }
-
-  for (let i = 1; i <= numDays; i++) {
-    const dateElement = document.createElement('div');
-    dateElement.classList.add('date');
-    dateElement.textContent = i;
-    calendarContainer.appendChild(dateElement);
-  }
 }
 
 
@@ -281,28 +251,3 @@ transactionForm.addEventListener('submit', (event) => {
   amountInput.value = '';
 });
 
-const goalsList = document.getElementById("goals-list");
-
-function addGoal() {
-  const goalName = prompt("Enter goal name:");
-  const deadline = prompt("Enter deadline (MM/DD/YYYY):");
-  const newGoal = document.createElement("li");
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.id = goalName;
-  checkbox.name = goalName;
-  checkbox.value = goalName;
-  const label = document.createElement("label");
-  label.htmlFor = goalName;
-  label.appendChild(document.createTextNode(goalName));
-  const deadlineSpan = document.createElement("span");
-  deadlineSpan.className = "deadline";
-  deadlineSpan.appendChild(document.createTextNode("Deadline: " + deadline));
-  newGoal.appendChild(checkbox);
-  newGoal.appendChild(label);
-  newGoal.appendChild(deadlineSpan);
-  goalsList.appendChild(newGoal);
-}
-
-const addGoalButton = document.querySelector("#add-goal-button");
-addGoalButton.addEventListener("click", addGoal);

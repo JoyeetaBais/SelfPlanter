@@ -17,17 +17,17 @@
     <!--side bar-->
     <div class="sidebar">
       <ul class="sidebar-menu">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Accounts</a></li>
-        <li><a href="#">Transactions</a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Settings</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#income-sources">Income Sources</a></li>
+        <li><a href="#expenses">Expenses</a></li>
+        <li><a href="#savings">Savings</a></li>
       </ul>
     </div>
     <!--main content-->
       <div class="content">
-      <section id="rectangles">
-      <h2>OVERVIEW</h2>  
+      <section id="dashboard">
+      <h2>Dashboard</h2>  
 	    <div class="container">
         <!-- rectangles 1 structure -->
         <div class="outer-rectangle1">
@@ -49,9 +49,7 @@
           <table>
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Action</th>
+                <th colspan="3"> Transaction History</th>
               </tr>
             </thead>
             <tbody>
@@ -62,19 +60,24 @@
                 
               </tr>
               <tr>
-                <td>01/02/2022</td>
+                <td>01/02</td>
                 <td>Rent</td>
                 <td>-$1000</td>
                 
               </tr>
               <tr>
-                <td>01/03/2022</td>
+                <td>01/03</td>
                 <td>Groceries</td>
                 <td>-$200</td>
                 
               </tr>
+              <tr>
+                <td>01/04</td>
+                <td>Insurance</td>
+                <td>-$500</td>
             </tbody>
           </table>
+
           <form id="transaction-form">
             <div class="form-row">
               <label for="date-input">Date:</label>
@@ -96,50 +99,101 @@
         </div>
         <!--rectangle 4 structure-->
         <div class="outer-rectangle4">
-            <button class="btn1" onclick="scrollToBalance()">Total Balance</button>
-            <button class="btn2" onclick="scrollToIncome()">Total Income</button>
-            <button class="btn3" onclick="scrollToExpense()">Total Expense</button>
-            <button class="btn4" onclick="scrollToSavings()">Total Savings</button>  
-        </div>
-        <!-- create a add card feature-->
-        <!--rectangle 5 structure-->
-        
-        <div class="outer-rectangle5">
-          <div class="goals-text">Goals</div>
-          <div class="todo-item">
-            <input type="checkbox" id="todo-checkbox">
-            <label for="todo-checkbox">
-              <span class="checkmark"></span>
-              <span class="todo-text">Buy groceries</span>
-            </label>
+          <div class="flip-card card1">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Balance</h3>
+              </div>
+              <div class="flip-card-back">
+                <p>Amount left : $30,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card card2">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Income</h3>
+              </div>
+              <div class="flip-card-back">
+                <p>Amount Earned : $50,000 </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card card3">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Expense </h3>
+          </div>
+            <div class="flip-card-back">
+              <p>Amount spent : $10,000</p>
+            </div>
           </div>
         </div>
+        <div class="flip-card card4">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>Savings</h3>
+            </div>
+            <div class="flip-card-back">
+              <p>Amount Saved: $10,000 </p>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- create a add card feature-->
+        <!--rectangle 5 structure-->
+        <section id="outer-rectangle5">
+          <div class="outer-rectangle5">
+            <div class="inner-rectangle51">
+              <h3> Financial Goals</h3>
+            </div>
+            <div class="form-check">
+              
+              
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Buy house in 5 years
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+              <label class="form-check-label" for="flexCheckDefault">
+                Buy car in 2 years
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+              <label class="form-check-label" for="flexCheckDefault">
+                Travel to Paris in 1 year
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+              <label class="form-check-label" for="flexCheckDefault">
+                Own a business in 10 years
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+              <label class="form-check-label" for="flexCheckChecked">
+                Buy a flat in 2 years
+            </div>
+
+
+          </div>
+        </section>
       </div>
     </section>
     
  
 
   <!-- Goal section-->
-  <div class="animated">
+  <section id="goals">
     <div class="centered-pair1" >
     <div class="goals">
       <div class="text1" data-aos="fade-in">
         <h2>Goals</h2>
         <p>A Goal is a personal promise to your future self.</p>
         <div class="buttons">
-          <button>Add Goal</button>
-          <ul id="goals-list">
-            <li>
-              <input type="checkbox" id="goal1" name="goal1" value="goal1">
-              <label for="goal1">Goal 1</label>
-              <span class="deadline">Deadline: 01/01/2022</span>
-            </li>
-            <li>
-              <input type="checkbox" id="goal2" name="goal2" value="goal2">
-              <label for="goal2">Goal 2</label>
-              <span class="deadline">Deadline: 01/01/2023</span>
-            </li>
-          </ul>
+          <button class="add_goals" onclick="scrollToGoals()">Add Goals</button>
           <button>View Goals</button>
         </div>
       </div>
@@ -149,8 +203,10 @@
       </div>
     </div>
   </div>
+  </section>
 
   <!--Income section-->
+  <section id="income-sources">
   <div class="centered-pair2" >
     <div class="income">
       <div class="image2" data-aos="fade-right">
@@ -166,7 +222,9 @@
       </div>
     </div>
   </div>
+  </section>
     <!-- Expense section-->
+    <section id="expenses">
     <div class="centered-pair3" >
     <div class="expense">
       <div class="text3" data-aos="fade-in">
@@ -182,8 +240,10 @@
       </div>
     </div>
   </div>
+  </section>
 
   <!-- savings section-->
+  <section id="savings">
   <div class="centered-pair4" >
     <div class="savings">
       <div class="image4" data-aos="fade-right">
@@ -199,81 +259,10 @@
       </div>
     </div>
   </div>
+  </section>
 </div>
   
-
-
-  <!-- microsoft part -->
-  <div class="section">
-    
-    <!-- Total income -->  
-    <section id="total-income">
-      <div class="section-box2">
-        <h2 class="section-title2">Income</h2>
-        <div id="total-income"></div>
-        <div class="i1">
-          <label for="stocks-input">Stocks:</label>
-          <input type="number" id="stocks-input">
-        </div>
-        <div class="i2">
-          <label for="mutual-funds-input">Mutual Funds:</label>
-          <input type="number" id="mutual-funds-input">
-        </div>
-        <div class="i3">
-          <label for="other-input">Other:</label>
-          <input type="number" id="other-input">
-        </div>
-        <br>
-        <button onclick="calculateTotal('investment')">Calculate Total</button>
-      </div>
-    </section>
-    
-            
-    <!--total expense-->
-    <section id="total-expense">
-      <div class="section-box3">
-        <h2 class="section-title3">Expense</h2>
-        <div id="total-expense"></div>
-        <div class="l1">
-          <label for="home-loan-input">Home Loan:</label>
-          <input type="number" id="home-loan-input">
-        </div>
-        <div class="l2">
-          <label for="car-loan-input">Car Loan:</label>
-          <input type="number" id="car-loan-input">
-        </div>
-        <div class="l3">
-          <label for="other-input">Other:</label>
-          <input type="number" id="other-input">
-        </div>
-        <br>
-        <button onclick="calculateTotal('loan')">Calculate Total</button>
-      </div>
-      </section>
-
-    <!--total savings-->
-    <section id="total-savings">
-      <div class="section-box4">
-        <h2 class="section-title4">Savings</h2>
-        <div id="total-savings"></div>
-        <div class="u1">
-          <label for="electricity-input">Electricity:</label>
-          <input type="number" id="electricity-input">
-        </div>
-        <div class="u2">
-          <label for="water-input">Water:</label>
-          <input type="number" id="water-input">
-        </div>
-        <div class="u3">
-          <label for="other-input">Other:</label>
-          <input type="number" id="other-input">
-        </div>
-        <br>
-        <button onclick="calculateTotal('utility')">Calculate Total</button>
-      </div>
-    </section>
   </div>  
-</div> 
   </main> 
   <a href="TransactionHistory.html">Go to History</a>
   <!-- jquery js file -->
