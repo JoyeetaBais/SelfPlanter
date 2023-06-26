@@ -1,12 +1,4 @@
 
-// Get references to HTML elements
-const transactionForm = document.getElementById('transaction-form');
-const typeInput = document.getElementById('type');
-const descriptionInput = document.getElementById('description');
-const amountInput = document.getElementById('amount');
-const transactionHistory = document.getElementById('transaction-history');
-const currentBalance = document.getElementById('current-balance');
-
 // Data structures for transactions
 let incomeTransactions = [];
 let expenseTransactions = [];
@@ -78,89 +70,24 @@ function formatCurrency(value) {
   return value.toFixed(2);
 }
 
-// Calculate and display the initial balance
-updateBalance();
-
-// Event listener for form submission
-transactionForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const type = typeInput.value;
-  const description = descriptionInput.value;
-  const amount = amountInput.value;
-
-  if (type && description && amount) {
-    addTransaction(type, description, amount);
-
-    // Reset the form
-    typeInput.value = '';
-    descriptionInput.value = '';
-    amountInput.value = '';
-  }
-});
-
-
-
-// Function to delete a transaction
-function deleteTransaction(transactionId, type) {
-  if (type === 'income') {
-    incomeTransactions = incomeTransactions.filter(transaction => transaction.id !== transactionId);
-  } else if (type === 'expense') {
-    expenseTransactions = expenseTransactions.filter(transaction => transaction.id !== transactionId);
-  }
-
-  updateBalance();
-  updateTransactionHistory();
-}
-function calculateTotal() {
-  // Get all the input fields for amount
-  var amountInputs = document.querySelectorAll('input[name="amount"]');
-  
-  // Initialize a variable to hold the total sum
-  var totalSum = 0;
-  
-  // Iterate over the input fields and add up the values
-  amountInputs.forEach(function(input) {
-    var amount = parseFloat(input.value);
-    if (!isNaN(amount)) {
-      totalSum += amount;
-    }
-  });
-  
-  // Display the total sum in the designated element
-  document.getElementById("total-charity").textContent = "Total Charity: " + totalSum.toFixed(2);
-}
-function scrollToCharity() {
-  var charitySection = document.getElementById("charity");
+function scrollToBalance() {
+  var charitySection = document.getElementById("total-balance");
   charitySection.scrollIntoView({ behavior: "smooth" });
 }
-function scrollToInvestment() {
-  var charitySection = document.getElementById("Investment");
+function scrollToIncome() {
+  var charitySection = document.getElementById("total-income");
   charitySection.scrollIntoView({ behavior: "smooth" });
 }
-function scrollToLoans() {
-  var charitySection = document.getElementById("Loans");
+function scrollToExpense() {
+  var charitySection = document.getElementById("total-expense");
   charitySection.scrollIntoView({ behavior: "smooth" });
 }
-function scrollToUtility() {
-  var charitySection = document.getElementById("utility");
+function scrollToSavings() {
+  var charitySection = document.getElementById("total-savings");
   charitySection.scrollIntoView({ behavior: "smooth" });
 }
 
-function addCard() {
-  var cardName = document.getElementById('cardName').value;
-  var cardNumber = document.getElementById('cardNumber').value;
 
-  var cardElement = document.createElement('div');
-  cardElement.classList.add('card');
-  cardElement.innerHTML = '<strong>' + cardName + '</strong><br>Card Number: ' + cardNumber;
-
-  document.getElementById('cardList').appendChild(cardElement);
-
-  // Reset the form fields
-  document.getElementById('cardName').value = '';
-  document.getElementById('cardNumber').value = '';
-}
 
 // open weekly/monthly/yearly graph for week/month/year button respectively 
 function openGraph(interval) {
@@ -300,5 +227,82 @@ function createCalendar() {
   }
 }
 
-// Call the createCalendar function to generate the calendar
-createCalendar();
+
+const animateMeElements = document.querySelectorAll('.animate-me');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-me-visible');
+    } else {
+      entry.target.classList.remove('animate-me-visible');
+    }
+  });
+});
+
+animateMeElements.forEach(element => {
+  observer.observe(element);
+});
+
+const todoCheckbox = document.getElementById('todo-checkbox');
+const todoText = document.querySelector('.todo-text');
+
+todoCheckbox.addEventListener('click', () => {
+  if (todoCheckbox.checked) {
+    todoText.style.textDecoration = 'line-through';
+    todoText.style.color = '#ccc';
+  } else {
+    todoText.style.textDecoration = 'none';
+    todoText.style.color = '#000';
+  }
+});
+
+const transactionForm = document.getElementById('transaction-form');
+const transactionTable = document.querySelector('.outer-rectangle3 table tbody');
+
+transactionForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const dateInput = document.getElementById('date-input');
+  const descriptionInput = document.getElementById('description-input');
+  const amountInput = document.getElementById('amount-input');
+  const date = dateInput.value;
+  const description = descriptionInput.value;
+  const amount = amountInput.value;
+  const transactionRow = `
+    <tr>
+      <td>${date}</td>
+      <td>${description}</td>
+      <td>${amount}</td>
+    </tr>
+  `;
+  transactionTable.insertAdjacentHTML('beforeend', transactionRow);
+  dateInput.value = '';
+  descriptionInput.value = '';
+  amountInput.value = '';
+});
+
+const goalsList = document.getElementById("goals-list");
+
+function addGoal() {
+  const goalName = prompt("Enter goal name:");
+  const deadline = prompt("Enter deadline (MM/DD/YYYY):");
+  const newGoal = document.createElement("li");
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = goalName;
+  checkbox.name = goalName;
+  checkbox.value = goalName;
+  const label = document.createElement("label");
+  label.htmlFor = goalName;
+  label.appendChild(document.createTextNode(goalName));
+  const deadlineSpan = document.createElement("span");
+  deadlineSpan.className = "deadline";
+  deadlineSpan.appendChild(document.createTextNode("Deadline: " + deadline));
+  newGoal.appendChild(checkbox);
+  newGoal.appendChild(label);
+  newGoal.appendChild(deadlineSpan);
+  goalsList.appendChild(newGoal);
+}
+
+const addGoalButton = document.querySelector("#add-goal-button");
+addGoalButton.addEventListener("click", addGoal);

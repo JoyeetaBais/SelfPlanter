@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Personal Finance Tracker</title>
+  <!-- bootstrap css file-->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <!-- css -->
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <!-- animate on scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 <body>
-  
   <main>  
     <!--side bar-->
     <div class="sidebar">
@@ -21,142 +25,275 @@
       </ul>
     </div>
     <!--main content-->
-    <div class="content">
-  <section id="rectangles">
-   <h2>OVERVIEW</h2>  
-	<div class="container">
-    <!-- rectangles 1 structure -->
-    <div class="outer-rectangle1">
-      <!--inserting rectangles-->
-      <div class="row">  
-      <button class="inner-rectangle1" onclick="openGraph('weekly')">WEEK</button>
-      <button class="inner-rectangle12" onclick="openGraph('monthly')">MONTH</button>
-      <button class="inner-rectangle13" onclick="openGraph('yearly')">YEAR</button>
-      </div> 
-       <!--inserting graph--> 
-    <div class="row">
-      <div class="graph-container" id="graphContainer"></div>
-    </div>
-    </div>
-    <!--rectangle 2 structure-->
-    <div class="outer-rectangle2">
-      <div class="inner-rectangle2">
-      <div class=""text>MY CARDS</div> 
+      <div class="content">
+      <section id="rectangles">
+      <h2>OVERVIEW</h2>  
+	    <div class="container">
+        <!-- rectangles 1 structure -->
+        <div class="outer-rectangle1">
+          <!--inserting rectangles-->
+          <div class="row">  
+            <button class="inner-rectangle11" onclick="openGraph('weekly')">WEEK</button>
+            <button class="inner-rectangle12" onclick="openGraph('monthly')">MONTH</button>
+            <button class="inner-rectangle13" onclick="openGraph('yearly')">YEAR</button>
+          </div> 
+          <!--inserting graph--> 
+          <div class="row">
+            <div class="graph-container" id="graphContainer"></div>
+          </div>
+        </div>
+        <!--rectangle 2 structure-->
+          <div class="outer-rectangle2"></div>
+        <!--rectangle 3 structure-->
+        <div class="outer-rectangle3">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01/01</td>
+                <td>Salary</td>
+                <td>$5000</td>
+                
+              </tr>
+              <tr>
+                <td>01/02/2022</td>
+                <td>Rent</td>
+                <td>-$1000</td>
+                
+              </tr>
+              <tr>
+                <td>01/03/2022</td>
+                <td>Groceries</td>
+                <td>-$200</td>
+                
+              </tr>
+            </tbody>
+          </table>
+          <form id="transaction-form">
+            <div class="form-row">
+              <label for="date-input">Date:</label>
+              <input type="date" id="date-input" name="date-input">
+            </div>
+            <div class="form-row">
+              <label for="description-input">Description:</label>
+              <select id="description-input" name="description-input">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="amount-input">Amount:</label>
+              <input type="number" id="amount-input" name="amount-input">
+            </div>
+            <button type="submit">Add Transaction</button>
+          </form>
+        </div>
+        <!--rectangle 4 structure-->
+        <div class="outer-rectangle4">
+            <button class="btn1" onclick="scrollToBalance()">Total Balance</button>
+            <button class="btn2" onclick="scrollToIncome()">Total Income</button>
+            <button class="btn3" onclick="scrollToExpense()">Total Expense</button>
+            <button class="btn4" onclick="scrollToSavings()">Total Savings</button>  
+        </div>
+        <!-- create a add card feature-->
+        <!--rectangle 5 structure-->
+        
+        <div class="outer-rectangle5">
+          <div class="goals-text">Goals</div>
+          <div class="todo-item">
+            <input type="checkbox" id="todo-checkbox">
+            <label for="todo-checkbox">
+              <span class="checkmark"></span>
+              <span class="todo-text">Buy groceries</span>
+            </label>
+          </div>
+        </div>
       </div>
-      <button class="addcard" onclick="addCard()">Add Card</button>
+    </section>
+    
+ 
+
+  <!-- Goal section-->
+  <div class="animated">
+    <div class="centered-pair1" >
+    <div class="goals">
+      <div class="text1" data-aos="fade-in">
+        <h2>Goals</h2>
+        <p>A Goal is a personal promise to your future self.</p>
+        <div class="buttons">
+          <button>Add Goal</button>
+          <ul id="goals-list">
+            <li>
+              <input type="checkbox" id="goal1" name="goal1" value="goal1">
+              <label for="goal1">Goal 1</label>
+              <span class="deadline">Deadline: 01/01/2022</span>
+            </li>
+            <li>
+              <input type="checkbox" id="goal2" name="goal2" value="goal2">
+              <label for="goal2">Goal 2</label>
+              <span class="deadline">Deadline: 01/01/2023</span>
+            </li>
+          </ul>
+          <button>View Goals</button>
+        </div>
       </div>
-    <!--rectangle 3 structure-->
-  	<div class="outer-rectangle3">
-      <button class="btn1" onclick="scrollToCharity()">CHARITY</button>
-      <button class="btn2" onclick="scrollToInvestment()">INVESTMENT</button>
-      <button class="btn3" onclick="scrollToLoans()">LOANS</button>
-      <button class="btn4" onclick="scrollToUtility()">UTILITY BILLS</button>  
+      
+      <div class="image1" data-aos="fade-left" >
+        <img src="./images/goals.png" alt="Image1">
+      </div>
     </div>
-    <!--rectangle 4 structure-->
-    <div class="outer-rectangle4"></div>
+  </div>
+
+  <!--Income section-->
+  <div class="centered-pair2" >
+    <div class="income">
+      <div class="image2" data-aos="fade-right">
+        <img src="./images/income.png" alt="Image2">
+      </div>
+      <div class="text2" data-aos="fade-in">
+        <h2>Income Streams</h2>
+        <p>Money comes to those who work for it!</p>
+        <div class="buttons">
+          <button>Add source</button>
+          <button>View sources</button>
+        </div>
+      </div>
     </div>
+  </div>
+    <!-- Expense section-->
+    <div class="centered-pair3" >
+    <div class="expense">
+      <div class="text3" data-aos="fade-in">
+        <h2>Expenses</h2>
+        <p>Never Spend your money before you have earned it</p>
+        <div class="buttons">
+          <button>Utility Bills</button>
+          <button>Others</button>
+        </div>
+      </div>
+      <div class="image3" data-aos="fade-left">
+        <img src="./images/expense.png" alt="Image3">
+      </div>
+    </div>
+  </div>
+
+  <!-- savings section-->
+  <div class="centered-pair4" >
+    <div class="savings">
+      <div class="image4" data-aos="fade-right">
+        <img src="./images/savings1.png" alt="Image4">
+      </div>
+      <div class="text4" data-aos="fade-in">
+        <h2>Savings</h2>
+        <p>Save and Invest for your future self!</p>
+        <div class="buttons">
+          <button>Savings</button>
+          <button>investment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
 
 
-    <div class="section">
-      <!--charity section-->
-      <section id="charity" >
-        <div class="section-box1">
-          <h2 class="section-title1">Charity</h2>
-          <div id="total-charity"></div>
-          <div class="c1">
-            <label for="donations">Donations:</label>
-            <input type="number" id="donations" class="amount-input" />
-          </div>
-          <div class="c2">
-            <label for="sponsorship">Sponsorship:</label>
-            <input type="number" id="sponsorship" class="amount-input" />
-          </div>
-          <div class="c3">
-            <label for="other">Other:</label>
-            <input type="number" id="other" class="amount-input" />
-          </div>
-          <div id="total-charity"></div>
-          <br>
-          <button onclick="calculateTotal('charity')">Calculate Total</button>
+  <!-- microsoft part -->
+  <div class="section">
+    
+    <!-- Total income -->  
+    <section id="total-income">
+      <div class="section-box2">
+        <h2 class="section-title2">Income</h2>
+        <div id="total-income"></div>
+        <div class="i1">
+          <label for="stocks-input">Stocks:</label>
+          <input type="number" id="stocks-input">
         </div>
+        <div class="i2">
+          <label for="mutual-funds-input">Mutual Funds:</label>
+          <input type="number" id="mutual-funds-input">
+        </div>
+        <div class="i3">
+          <label for="other-input">Other:</label>
+          <input type="number" id="other-input">
+        </div>
+        <br>
+        <button onclick="calculateTotal('investment')">Calculate Total</button>
+      </div>
+    </section>
+    
+            
+    <!--total expense-->
+    <section id="total-expense">
+      <div class="section-box3">
+        <h2 class="section-title3">Expense</h2>
+        <div id="total-expense"></div>
+        <div class="l1">
+          <label for="home-loan-input">Home Loan:</label>
+          <input type="number" id="home-loan-input">
+        </div>
+        <div class="l2">
+          <label for="car-loan-input">Car Loan:</label>
+          <input type="number" id="car-loan-input">
+        </div>
+        <div class="l3">
+          <label for="other-input">Other:</label>
+          <input type="number" id="other-input">
+        </div>
+        <br>
+        <button onclick="calculateTotal('loan')">Calculate Total</button>
+      </div>
       </section>
-      
-      
-      <!-- Investment Section-->  
-      <section id="Investment">
-        <div class="section-box2">
-          <h2 class="section-title2">Investment</h2>
-          <div id="total-investment"></div>
-          <div class="i1">
-            <label for="stocks-input">Stocks:</label>
-            <input type="number" id="stocks-input">
-          </div>
-          <div class="i2">
-            <label for="mutual-funds-input">Mutual Funds:</label>
-            <input type="number" id="mutual-funds-input">
-          </div>
-          <div class="i3">
-            <label for="other-input">Other:</label>
-            <input type="number" id="other-input">
-          </div>
-          <br>
-          <button onclick="calculateTotal('investment')">Calculate Total</button>
+
+    <!--total savings-->
+    <section id="total-savings">
+      <div class="section-box4">
+        <h2 class="section-title4">Savings</h2>
+        <div id="total-savings"></div>
+        <div class="u1">
+          <label for="electricity-input">Electricity:</label>
+          <input type="number" id="electricity-input">
         </div>
-      </section>
-      
-              
-      <!--Loan section-->
-      <section id="loan">
-        <div class="section-box3">
-          <h2 class="section-title3">Loans</h2>
-          <div id="total-loan"></div>
-          <div class="l1">
-            <label for="home-loan-input">Home Loan:</label>
-            <input type="number" id="home-loan-input">
-          </div>
-          <div class="l2">
-            <label for="car-loan-input">Car Loan:</label>
-            <input type="number" id="car-loan-input">
-          </div>
-          <div class="l3">
-            <label for="other-input">Other:</label>
-            <input type="number" id="other-input">
-          </div>
-          <br>
-          <button onclick="calculateTotal('loan')">Calculate Total</button>
+        <div class="u2">
+          <label for="water-input">Water:</label>
+          <input type="number" id="water-input">
         </div>
-        </section>
-      <!--Utility Bills-->
-      <section id="utility">
-        <div class="section-box4">
-          <h2 class="section-title4">Utility bills</h2>
-          <div id="total-utility"></div>
-          <div class="u1">
-            <label for="electricity-input">Electricity:</label>
-            <input type="number" id="electricity-input">
-          </div>
-          <div class="u2">
-            <label for="water-input">Water:</label>
-            <input type="number" id="water-input">
-          </div>
-          <div class="u3">
-            <label for="other-input">Other:</label>
-            <input type="number" id="other-input">
-          </div>
-          <br>
-          <button onclick="calculateTotal('utility')">Calculate Total</button>
+        <div class="u3">
+          <label for="other-input">Other:</label>
+          <input type="number" id="other-input">
         </div>
-      </section>
-      
-	</div> 
-</div>   
+        <br>
+        <button onclick="calculateTotal('utility')">Calculate Total</button>
+      </div>
+    </section>
+  </div>  
+</div> 
   </main> 
   <a href="TransactionHistory.html">Go to History</a>
+  <!-- jquery js file -->
+  <script src="./js/jquery-3.7.0.min.js"></script>
+  <!-- bootstrap js file-->
+  <script src="./js/bootstrap.min.js"></script>
 
   <script src="./js/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- animate on scroll script -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 3000,
+      once: true,
+    });
+  </script>
+  
 
 
 </body>

@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap");
+/*import fonts*/
+@import url("./fonts/Roboto/Roboto-Regular.ttf");
+@import url("./variables.css");
 body {
-  background-color: black;
-  font-family: "Open Sans", sans-serif;
+  background-color: var(--title-color);
+  font-family: var(--roboto);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -9,7 +11,120 @@ body {
   margin: 20;
   padding: 20;
 }
+/* goals section */
+.centered-pair1 {
+  display: flex;
+  justify-content: center;
+}
 
+.goals{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.goals .text {
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 30%;
+}
+
+.goals .image1 {
+  text-align: center;
+  margin-left: 20%;
+  padding: 10px;
+}
+
+.goals img {
+  max-width: 100%;
+  height: auto;
+}
+/* income section */
+.centered-pair2 {
+  display: flex;
+  justify-content: center;
+}
+
+.income {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.income .image2 {
+  text-align: center;
+  margin-right: 20px;
+  padding: 10px;
+  max-width: 60%;
+  
+}
+
+.income .text2{
+  text-align: center;
+  margin-left: 10%;
+}
+
+.income img {
+  max-width: 100%;
+  height: auto;
+}
+/* expense section */
+.centered-pair3 {
+  display: flex;
+  justify-content: center;
+}
+
+.expense{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.expense .text3 {
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 30%;
+}
+
+.expense .image3 {
+  text-align: center;
+  margin-left: 20%;
+  padding: 10px;
+  max-width: 60%;
+}
+
+.expense img {
+  max-width: 100%;
+  height: auto;
+}
+/* savings section */
+.centered-pair4 {
+  display: flex;
+  justify-content: center;
+}
+
+.savings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.savings .image4 {
+  text-align: center;
+  margin-right: 20px;
+  padding: 10px;
+  max-width: 60%;
+}
+
+.savings .text4{
+  text-align: center;
+  margin-left: 10%;
+}
+
+.savings img {
+  max-width: 100%;
+  height: auto;
+}
 .container {
   display: grid;
   grid-gap: 2px;
@@ -17,7 +132,6 @@ body {
   grid-template-rows: repeat(2, 1fr);
 }
 .section {
-
   border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -25,14 +139,14 @@ body {
 
 }
 
-/* rectangle 1 design */
+/* rectangle 1 - graphs design */
 .outer-rectangle1 {
-  width: 80%;
-  height: 70%;
+  width: 200%;
+  height: 100%;
   background-color: #37353592;
   margin: 10px;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 10px;
+  border-radius: 10px;
   float: center;
   display: grid;
 
@@ -43,7 +157,7 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-.inner-rectangle1 {
+.inner-rectangle11 {
   width: 100px;
   height: 25px;
   background-color: #F25022;
@@ -53,6 +167,10 @@ body {
   text-align: center;
   color: white;
   float: left;
+}
+.inner-rectangle11:hover {
+  background-color: #ff6600;
+  color: white;
 }
 .inner-rectangle12 {
   width: 100px;
@@ -65,6 +183,10 @@ body {
   color: white;
   float: center;
 }
+.inner-rectangle12:hover {
+  background-color: #ff6600;
+  color: white;
+}
 .inner-rectangle13 {
   width: 100px;
   height: 25px;
@@ -75,6 +197,10 @@ body {
   text-align: center;
   color: white;
 }
+.inner-rectangle13:hover {
+  background-color: #ff6600;
+  color: white;
+}
 .graph-container {
   width: 90%;
   height: 180px;
@@ -82,69 +208,87 @@ body {
   border-radius: 10px;
   overflow: hidden;
 }
-
-
-
-
-/* rectangle 2 design */
-.outer-rectangle2 {
-  width: 70%;
-  height: 40%;
+/* rectangle 2 omit*/
+/* rectangle 3 - Transaction history design*/
+.outer-rectangle3 {
+  width: 90%;
+  height: 180%;
   background-color: #37353592;
-  margin: 10px;
+  border-radius: 10px;
   padding: 10px;
-  border-radius: 15px;
-  position: relative;
+  position: right;
   display: grid;
-  grid-template-rows: 3fr 1fr;
-}
-.text {
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  color: #ffffff;
-  margin-top: 100px;
-  padding: 20px;
-
-}
-
-.inner-rectangle2 {
-  width: 100%;
-  height: 100%;
-  background-color: #7FBA00;
-  border-radius: 15px;
-  align-content: center;
-  text-align: center;  
+  margin: 11px;
   
 }
 
-.addcard{
-  width: 40%;
-  height: 60%;
-  background-color: #7FBA00;
-  border-radius: 5px;
-  align-content: center;
-  align-self: center;
-  margin-left:70px;
-  text-align: center;
-  color: white;
+table {
+  width: 100%;
+  border-collapse: collapse;
 
 }
-/* rectangle 3 design */
-.outer-rectangle3 {
-  width: 90%;
-  height: 80%;
+
+th, td {
+  
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #7FBA00;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  flex-basis: 100%;
+  
+ 
+}
+
+input[type="date"], input[type="text"], input[type="number"] {
+  flex-basis: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* rectangle 4 microsoft - design */
+.outer-rectangle4 {
+  width: 97%;
+  height: 78%;
   background-color: #37353592;
-  border-radius: 15px;
-  float: center;
+  border-radius: 10px;
   padding: 10px;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
-  margin: 10px;
+  margin: 15px;
 
 }
-/*button 1 : charity design */
+/*button 1 : balance */
+
 .btn1{
   background-color: #F25022;
   color: white;
@@ -152,6 +296,10 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.btn1:hover {
+  background-color: #ff6600;
+  color: white;
 }
 .section-box1 {
   border: 1px solid #f24f22cf;
@@ -200,7 +348,7 @@ body {
 }
 
 
-/* button 2 : investment design */
+/* button 2 : Income */
 .btn2 {
   background-color: #7FBA00;
   color: white;
@@ -208,6 +356,10 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.btn2:hover {
+  background-color: #90ce0a;
+  color: white;
 }
 .section-box2 {
   border: 1px solid #7FBA00;
@@ -226,7 +378,7 @@ body {
 }
 
 
-/* button 3 : loans design */
+/* button 3 : Expense */
 .btn3 {
   background-color: #00A4EF;
   color: white;
@@ -234,6 +386,10 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.btn3:hover {
+  background-color: #1ab1f7;
+  color: white;
 }
 .section-box3 {
   border: 1px solid #00A4EF;
@@ -250,9 +406,7 @@ body {
   border-radius: 5px;
   background-color: #00A4EF;
 }
- 
-
-/* button 4 : utility bills */
+/* button 4 : Savings */
 .btn4 {
   background-color:  #FFB900;
   color: white;
@@ -260,6 +414,10 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.btn4:hover {
+  background-color: #f9c73b;
+  color: white;
 }
 .section-box4 {
   border: 1px solid #FFB900;
@@ -277,16 +435,18 @@ body {
   background-color: #FFB900;
 }
 
-/* rectangle 4 design */
-.outer-rectangle4 {
-  width: 80%;
-  height: 80%;
+/* rectangle 5 design */
+.outer-rectangle5 {
+  width: 97%;
+  height: 78%;
   background-color: #37353592;
-  margin: 10px;
+  border-radius: 10px;
   padding: 10px;
-  border-radius: 15px;
-  margin-top: 20px;
+  position: right;
+  display: grid;
+  margin: 15px;
 }
+
 
 .sidebar {
   width: 200px;
@@ -347,3 +507,53 @@ body {
 
 
 
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-item input[type="checkbox"] {
+  display: none;
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 0;
+}
+
+.todo-item .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+.todo-item label:hover .checkmark {
+  background-color: #ccc;
+}
+
+.todo-item input[type="checkbox"]:checked + label .checkmark:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #007bff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.todo-item input[type="checkbox"]:checked + label .todo-text {
+  text-decoration: line-through;
+  color: #ccc;
+}
