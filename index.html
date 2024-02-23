@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Personal Finance Tracker</title>
-  <!-- bootstrap css file-->
+  <title>SELF Planter</title>
+  <!-- bootstrap css file--> 
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <!-- css -->
   <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -13,258 +13,141 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 <body>
-  <main>  
-    <!--side bar-->
-    <div class="sidebar">
-      <ul class="sidebar-menu">
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#goals">Goals</a></li>
-        <li><a href="#income-sources">Income Sources</a></li>
-        <li><a href="#expenses">Expenses</a></li>
-        <li><a href="#savings">Savings</a></li>
+    <!--top navigation bar-->
+    <nav class="navbar">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#Home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#About">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Plants">Plants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Feedback">Feedback</a>
+        </li>
       </ul>
-    </div>
-    <!--main content-->
-      <div class="content">
-      <section id="dashboard">
-      <h2>Dashboard</h2>  
-	    <div class="container">
-        <!-- rectangles 1 structure -->
-        <div class="outer-rectangle1">
-          <!--inserting rectangles-->
-          <div class="row">  
-            <button class="inner-rectangle11" onclick="openGraph('weekly')">WEEK</button>
-            <button class="inner-rectangle12" onclick="openGraph('monthly')">MONTH</button>
-            <button class="inner-rectangle13" onclick="openGraph('yearly')">YEAR</button>
-          </div> 
-          <!--inserting graph--> 
-          <div class="row">
-            <div class="graph-container" id="graphContainer"></div>
+    </nav>
+    <main>  
+    <!--Home content-->
+    <section id="Home">
+      <div class="container-1">
+        <!-- First Row -->
+        <div class="item">
+          <div class="column">
+            <img src="./assets/box-removebg-preview.png" alt="Water">
+          </div>
+          <div class="column">
+            <p>Soil Moisture</p>
+            <p id="water">52</p> <!-- Placeholder for API-fetched value -->
           </div>
         </div>
-        <!--rectangle 2 structure-->
-          <div class="outer-rectangle2"></div>
-        <!--rectangle 3 structure-->
-        <div class="outer-rectangle3">
-          <table>
-            <thead>
-              <tr>
-                <th colspan="3"> Transaction History</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01/01</td>
-                <td>Salary</td>
-                <td>$5000</td>
-                
-              </tr>
-              <tr>
-                <td>01/02</td>
-                <td>Rent</td>
-                <td>-$1000</td>
-                
-              </tr>
-              <tr>
-                <td>01/03</td>
-                <td>Groceries</td>
-                <td>-$200</td>
-                
-              </tr>
-              <tr>
-                <td>01/04</td>
-                <td>Insurance</td>
-                <td>-$500</td>
-            </tbody>
-          </table>
 
-          <form id="transaction-form">
-            <div class="form-row">
-              <label for="date-input">Date:</label>
-              <input type="date" id="date-input" name="date-input">
-            </div>
-            <div class="form-row">
-              <label for="description-input">Description:</label>
-              <select id="description-input" name="description-input">
-                <option value="income">Income</option>
-                <option value="expense">Expense</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="amount-input">Amount:</label>
-              <input type="number" id="amount-input" name="amount-input">
-            </div>
-            <button type="submit">Add Transaction</button>
-          </form>
-        </div>
-        <!--rectangle 4 structure-->
-        <div class="outer-rectangle4">
-          <div class="flip-card card1">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <h3>Balance</h3>
-              </div>
-              <div class="flip-card-back">
-                <p>Amount left : $30,000</p>
-              </div>
-            </div>
+        <div class="item">
+          <div class="column">
+            <img src="./assets/Rectangle_npk.svg" alt="N-P-K">
           </div>
-          <div class="flip-card card2">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <h3>Income</h3>
-              </div>
-              <div class="flip-card-back">
-                <p>Amount Earned : $50,000 </p>
-              </div>
-            </div>
-          </div>
-          <div class="flip-card card3">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <h3>Expense </h3>
-          </div>
-            <div class="flip-card-back">
-              <p>Amount spent : $10,000</p>
-            </div>
+          <div class="column">
+            <p>N-P-K</p>
+            <p id="npk">10-15-5</p> <!-- Placeholder for API-fetched value -->
           </div>
         </div>
-        <div class="flip-card card4">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>Savings</h3>
-            </div>
-            <div class="flip-card-back">
-              <p>Amount Saved: $10,000 </p>
-            </div>
+        
+        <div class="item">
+          <div class="column">
+            <img src="./assets/box_temperature.jpg" alt="Temperature">
+          </div>
+          <div class="column">
+            <p>Temperature</p>
+            <p id="temp">26</p> <!-- Placeholder for API-fetched value -->
           </div>
         </div>
-      </div>
-        <!-- create a add card feature-->
-        <!--rectangle 5 structure-->
-        <section id="outer-rectangle5">
-          <div class="outer-rectangle5">
-            <div class="inner-rectangle51">
-              <h3> Financial Goals</h3>
-            </div>
-            <div class="form-check">
-              
-              
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Buy house in 5 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
-              <label class="form-check-label" for="flexCheckDefault">
-                Buy car in 2 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
-              <label class="form-check-label" for="flexCheckDefault">
-                Travel to Paris in 1 year
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
-              <label class="form-check-label" for="flexCheckDefault">
-                Own a business in 10 years
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-              <label class="form-check-label" for="flexCheckChecked">
-                Buy a flat in 2 years
-            </div>
-
-
+        
+        <div class="item">
+          <div class="column">
+            <img src="./assets/Rectangle 538.svg" alt="Air Quality">
           </div>
-        </section>
-      </div>
-    </section>
+          <div class="column">
+            <p>Air Quality</p>
+            <p id="aqi">30</p> <!-- Placeholder for API-fetched value -->
+          </div>
+        </div>
+        
     
- 
+        <!-- Second Row -->
+        <div class="item-video" style="grid-column: span 3;">
+          <iframe src="http://192.168.203.243/" width="750" height="275" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
+        </div>
+        <div class="general">
+          <img src="./assets/Monstera_plant_magnet_by_lisaedlund_on_Redbubble-removebg-preview.png" alt="general"><h4>Selected Plant</h3>
+          <p>Monstera Planter</p>
+        </div>
+    </section>
+    <section id="About">
+      <div class="centered-pair1" >
+      <div class="about">
+        <div class="text1" data-aos="fade-in">
+          <h1>How The Product Works?</h1><br><br>
+          <h3>Select A Plant --> Plant the Seeds --> Let the Magic happen!!</h3>
+        </div>
+        
+        <div class="image1" data-aos="fade-left" >
+          <img src="./assets/_Tiny_Potted_Succulents_and_Gradient__Sticker_for_Sale_by_BountifulBean-removebg-preview (1).png" alt="Image1">
+        </div>
+      </div>
+    </div>
+    </section>
+    <section id="Plants">
+      <h2>Category</h2>
+      <h3>Choose from a wide range of plants</h3>
+      <div class="categories-container">
+        
+        <div class="category">
 
-  <!-- Goal section-->
-  <section id="goals">
-    <div class="centered-pair1" >
-    <div class="goals">
-      <div class="text1" data-aos="fade-in">
-        <h2>Goals</h2>
-        <p>A Goal is a personal promise to your future self.</p>
-        <div class="buttons">
-          <button class="add_goals" onclick="scrollToGoals()">Add Goals</button>
-          <button>View Goals</button>
+            <img src="./assets/Basil_plant_1280x960_49df8295-f6fd-4d09-a968-083755711b7c_1200x-removebg-preview.png" alt="Plant 2">
+            <p class="category-name">Basil</p>
         </div>
-      </div>
-      
-      <div class="image1" data-aos="fade-left" >
-        <img src="./images/goals.png" alt="Image1">
-      </div>
-    </div>
-  </div>
-  </section>
-
-  <!--Income section-->
-  <section id="income-sources">
-  <div class="centered-pair2" >
-    <div class="income">
-      <div class="image2" data-aos="fade-right">
-        <img src="./images/income.png" alt="Image2">
-      </div>
-      <div class="text2" data-aos="fade-in">
-        <h2>Income Streams</h2>
-        <p>Money comes to those who work for it!</p>
-        <div class="buttons">
-          <button>Add source</button>
-          <button>View sources</button>
+        <div class="category">
+            <img src="./assets/Cilantro_Coriander_1200x960_523458e5-d922-41ea-9a89-3b14d1e01b5c_1200x-removebg-preview.png" alt="Plant 2">
+            <p class="category-name">Coriander</p>
         </div>
-      </div>
-    </div>
-  </div>
-  </section>
-    <!-- Expense section-->
-    <section id="expenses">
-    <div class="centered-pair3" >
-    <div class="expense">
-      <div class="text3" data-aos="fade-in">
-        <h2>Expenses</h2>
-        <p>Never Spend your money before you have earned it</p>
-        <div class="buttons">
-          <button>Utility Bills</button>
-          <button>Others</button>
+        <div class="category">
+            <img src="./assets/Lavender_plant_1200x960_f2d65d08-55d5-4196-858d-cea4a84a81da_1200x-removebg-preview.png" alt="Plant 2">
+            <p class="category-name">Lavender</p>
         </div>
-      </div>
-      <div class="image3" data-aos="fade-left">
-        <img src="./images/expense.png" alt="Image3">
-      </div>
-    </div>
-  </div>
-  </section>
-
-  <!-- savings section-->
-  <section id="savings">
-  <div class="centered-pair4" >
-    <div class="savings">
-      <div class="image4" data-aos="fade-right">
-        <img src="./images/savings1.png" alt="Image4">
-      </div>
-      <div class="text4" data-aos="fade-in">
-        <h2>Savings</h2>
-        <p>Save and Invest for your future self!</p>
-        <div class="buttons">
-          <button>Savings</button>
-          <button>investment</button>
+        <div class="category">
+            <img src="./assets/Peppermint_plant_1200x960_849a45a1-0db1-4037-90f0-32f31bfd7578_1200x-removebg-preview.png">
+            <p class="category-name">Peppermint</p>
         </div>
-      </div>
+        <div class="category">
+            <img src="./assets/red-hot-chili-pepper-1200x960_1200x-removebg-preview.png" alt="Plant 2">
+            <p class="category-name">Red Chilli</p>
+        </div>
+        <div class="category">
+            <img src="./assets/Thai_Basil_plant_1200x960_c1919065-ff60-4ddf-8571-95a0a8540316_1200x-removebg-preview.png" alt="Plant 2">
+            <p class="category-name">Thai Basil</p>
+        </div>
+        <!-- Add more categories as needed -->
     </div>
-  </div>
-  </section>
-</div>
-  
-  </div>  
-  </main> 
-  <a href="TransactionHistory.html">Go to History</a>
+    
+    </section>
+    <footer>
+      <section id="Contact">
+        <div>
+          <a href="mailto:faizantabassum2003@gmail.com"><img src="https://brave-flower-0da55d300.3.azurestaticapps.net/envelope.218572ce.svg" alt="email" class="socialIcon">
+          </a>
+          <a href="https://github.com/faizantabassum" target="_blank" rel="noopener noreferrer"><img src="https://brave-flower-0da55d300.3.azurestaticapps.net/github.a2abf599.svg" alt="GitHub" class="socialIcon"></a>
+          <a href="https://www.linkedin.com/in/faizantabassum/" target="_blank" rel="noopener noreferrer"><img src="https://brave-flower-0da55d300.3.azurestaticapps.net/linkedin.b0d336c3.svg" alt="LinkedIn" class="socialIcon"></a>
+          <a href="https://www.youtube.com/@" target="_blank" rel="noopener noreferrer"><img src="https://brave-flower-0da55d300.3.azurestaticapps.net/youtube.225f4e4b.svg" alt="YouTube" class="socialIcon"></a>
+      </div>
+      </section>
+    </footer>
+    </main> 
   <!-- jquery js file -->
   <script src="./js/jquery-3.7.0.min.js"></script>
   <!-- bootstrap js file-->
